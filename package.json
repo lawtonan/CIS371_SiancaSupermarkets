@@ -1,0 +1,13 @@
+{
+  "name": "Yarn",
+  "version": "1.0.0",
+  "description": "This",
+  "main": "index.js",
+  "repository": "https://github.com/lawtonan/sianca-super.git",
+  "author": "lawtonan",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
+}
