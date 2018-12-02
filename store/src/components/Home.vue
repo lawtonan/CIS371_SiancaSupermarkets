@@ -7,6 +7,8 @@
     <carousel perPage=1 :navigationEnabled="true">
       <slide>
         <img :src="require('../assets/lemon.png')">
+        <span>12.95</span>
+        <v-btn href="./item">Details</v-btn>
       </slide>
       <slide>
         <img :src="require('../assets/lemon.png')">
