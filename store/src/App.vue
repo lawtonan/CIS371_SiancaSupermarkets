@@ -56,27 +56,28 @@
     </v-list>
     </v-navigation-drawer>
 
-    <v-content>
-      <Home/>
-    </v-content>
+    <router-view></router-view>
+
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import Home from './components/Home'
-
-
 export default {
-  name: 'App',
-  components: {
-    Home,
-    HelloWorld
-  },
   data () {
     return {
-       drawer: false
+      clipped: false,
+      drawer: true,
+      fixed: false,
+      items: [{
+        icon: 'bubble_chart',
+        title: 'Inspire'
+      }],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Vuetify.js'
     }
-  }
+  },
+  name: 'App'
 }
 </script>
