@@ -2,14 +2,14 @@
   <v-app>
     <v-toolbar app>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat href="./Home" icon><v-icon>home</v-icon></v-btn>
+        <v-btn flat href="./home" icon><v-icon>home</v-icon></v-btn>
       </v-toolbar-items>
       <v-toolbar-title>Sianca Supermarkets</v-toolbar-title> 
       <v-spacer></v-spacer>
       <v-text-field prepend-icon="search" single-line></v-text-field>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat href="./Cart" icon><v-icon>shopping_cart</v-icon></v-btn>
+        <v-btn flat href="./cart" icon><v-icon>shopping_cart</v-icon></v-btn>
       </v-toolbar-items>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
@@ -22,7 +22,7 @@
       <v-list>
       <v-list-tile>
         <v-list-tile-action>
-          <v-btn flat href="./Home" icon><v-icon>home</v-icon></v-btn>
+          <v-btn flat href="./home" icon><v-icon>home</v-icon></v-btn>
         </v-list-tile-action>
         <v-list-tile-title>Home</v-list-tile-title>
       </v-list-tile>

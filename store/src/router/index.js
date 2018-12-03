@@ -7,9 +7,10 @@ const routerOptions = [
   { path: '/home', component: 'Home' },
   { path: '/cart', component: 'Cart' },
   { path: '/add', component: 'Add' },
-  { path: '/search', component: 'search' },
-  { path: '/item', component: 'Item' }
-
+  { path: '/search', component: 'Search' },
+  { path: '/item', component: 'Item' },
+  { path: '/signUp', component: 'SignUp' },
+  { path: '/login', component: 'Login' }
 ]
 
 const routes = routerOptions.map(route => {

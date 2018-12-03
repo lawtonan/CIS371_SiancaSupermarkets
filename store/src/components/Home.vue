@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 0px 0px 0px;">
+  <v-container style="padding: 70px 0px 0px;">
     <v-img aspect-ratio="5" :src="'https://greatist.com/sites/default/files/styles/fb-1200x630/public/wp-content/uploads/2011/11/Apples.jpg?itok=Cqn_I8Ms'"
     >
     </v-img>
