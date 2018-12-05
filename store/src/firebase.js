@@ -8,7 +8,16 @@ const firebaseApp = firebase.initializeApp({
   databaseURL: "https://users-c9d2a.firebaseio.com",
   projectId: "users-c9d2a",
   storageBucket: "users-c9d2a.appspot.com",
-  messagingSenderId: "337537309601"
+  messagingSenderId: "337537309601",
+  "hosting": {
+    "public": "dist",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 });
 
 
