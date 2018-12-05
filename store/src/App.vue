@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar app>
+    <v-toolbar app v-if="isLogin">
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat href="./#/home" icon><v-icon>home</v-icon></v-btn>
       </v-toolbar-items>
@@ -67,6 +67,14 @@ export default {
     return {
       drawer: false,
     }
+  },
+  computed:{
+      isLogin(){
+          return this.$route.path !== '/login'
+      },
+      isSign(){
+          return this.$route.path !== '/sign-up'
+      }
   },
   name: 'App'
 }
