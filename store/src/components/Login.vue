@@ -73,7 +73,7 @@ import firebase from 'firebase';
         font-size: 13px;
     }
     p a {
-        text-deoration: underline;
+        /* text-deoration: underline; */
         cursor: pointer;
     }
 </style>
