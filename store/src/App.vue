@@ -2,14 +2,14 @@
   <v-app>
     <v-toolbar app>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat href="./home" icon><v-icon>home</v-icon></v-btn>
+        <v-btn flat href="./#/home" icon><v-icon>home</v-icon></v-btn>
       </v-toolbar-items>
       <v-toolbar-title>Sianca Supermarkets</v-toolbar-title> 
       <v-spacer></v-spacer>
       <v-text-field prepend-icon="search" single-line></v-text-field>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat href="./cart" icon><v-icon>shopping_cart</v-icon></v-btn>
+        <v-btn flat href="./#/cart" icon><v-icon>shopping_cart</v-icon></v-btn>
       </v-toolbar-items>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
@@ -34,14 +34,14 @@
 
         <v-list-tile>
           <v-list-tile-action>
-            <v-btn flat href="./add" icon> <v-icon>add</v-icon></v-btn>
+            <v-btn flat href="./#/add" icon> <v-icon>add</v-icon></v-btn>
           </v-list-tile-action>
           <v-list-tile-title>Add Items</v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile>
           <v-list-tile-action>
-            <v-btn flat href="./sale" icon> <v-icon>attach_money</v-icon></v-btn>
+            <v-btn flat href="./#/sale" icon> <v-icon>attach_money</v-icon></v-btn>
           </v-list-tile-action>
           <v-list-tile-title>Sale Items</v-list-tile-title>
         </v-list-tile>
@@ -49,7 +49,7 @@
 
       <v-list-tile>
         <v-list-tile-action>
-          <v-btn flat href="./" icon><v-icon>arrow_back</v-icon></v-btn>
+          <v-btn flat href="./#/" icon><v-icon>arrow_back</v-icon></v-btn>
         </v-list-tile-action>
         <v-list-tile-title>Logout</v-list-tile-title>
       </v-list-tile>
@@ -71,3 +71,26 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+#app {
+  
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#nav {
+  padding: 70px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
