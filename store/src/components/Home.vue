@@ -1,7 +1,6 @@
 <template>
   <v-container style="padding: 70px 0px 0px;">
-    <v-img aspect-ratio="5" :src="'https://greatist.com/sites/default/files/styles/fb-1200x630/public/wp-content/uploads/2011/11/Apples.jpg?itok=Cqn_I8Ms'"
-    >
+    <v-img aspect-ratio="5" :src="require('../assets/logoblack.png')">
     </v-img>
     <h1>SpotLight</h1>
     <carousel perPage=1 :navigationEnabled="true">

@@ -17,7 +17,7 @@ import Home from '@/components/Home.vue';
 import Login from '@/components/Login.vue';
 import SignUp from '@/components/SignUp.vue';
 import Add from '@/components/Add.vue';
-import HelloWorld from '@/components/HelloWorld.vue';
+import Sale from '@/components/Sale.vue';
 import Cart from '@/components/Cart.vue';
 import Search from '@/components/Search.vue';
 import Item from '@/components/Item.vue';
@@ -76,6 +76,11 @@ const router = new Router({
       name: 'Item',
       component: Item
     },
+    {
+      path: '/sale',
+      name: 'Sale',
+      component: Sale
+    }
     
     
   ]
