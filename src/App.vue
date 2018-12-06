@@ -22,7 +22,7 @@
       <v-list>
       <v-list-tile>
         <v-list-tile-action>
-          <v-btn flat href="./home" icon><v-icon>home</v-icon></v-btn>
+          <v-btn flat href="./#/home" icon><v-icon>home</v-icon></v-btn>
         </v-list-tile-action>
         <v-list-tile-title>Home</v-list-tile-title>
       </v-list-tile>
@@ -32,14 +32,26 @@
           <v-list-tile-title>Admin</v-list-tile-title>
         </v-list-tile>
 
-        <v-list-tile>
+        <v-list-tile v-if="isAdmin == false">
+          <v-list-tile-action>
+            <v-text-field  :type="'password'" v-model="password"></v-text-field>
+          </v-list-tile-action> 
+        </v-list-tile>
+
+        <v-list-tile v-if="isAdmin == false">
+          <v-list-tile-action>
+            <v-btn @click="admin" icon>Login</v-btn>
+          </v-list-tile-action>
+        </v-list-tile>
+
+        <v-list-tile v-if="isAdmin">
           <v-list-tile-action>
             <v-btn flat href="./#/add" icon> <v-icon>add</v-icon></v-btn>
           </v-list-tile-action>
           <v-list-tile-title>Add Items</v-list-tile-title>
         </v-list-tile>
 
-        <v-list-tile>
+        <v-list-tile v-if="isAdmin"> 
           <v-list-tile-action>
             <v-btn flat href="./#/sale" icon> <v-icon>attach_money</v-icon></v-btn>
           </v-list-tile-action>
@@ -49,14 +61,14 @@
 
       <v-list-tile>
         <v-list-tile-action>
-          <v-btn flat href="./#/" icon><v-icon>arrow_back</v-icon></v-btn>
+          <v-btn @click="reset" flat href="./#/" icon><v-icon>arrow_back</v-icon></v-btn>
         </v-list-tile-action>
         <v-list-tile-title>Logout</v-list-tile-title>
       </v-list-tile>
     </v-list>
     </v-navigation-drawer>
 
-    <router-view></router-view>
+    <router-view v-bind:isAdmin="isAdmin"></router-view>
 
   </v-app>
 </template>
@@ -66,6 +78,18 @@ export default {
   data () {
     return {
       drawer: false,
+      isAdmin: false
+    }
+  },
+  methods: {
+    admin: function(){
+      if(this.password == 'admin'){
+        alert(this.password);
+        this.isAdmin = true;
+      }
+    },
+    reset: function() {
+      this.isAdmin = false;
     }
   },
   computed:{

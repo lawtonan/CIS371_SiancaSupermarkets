@@ -2,36 +2,25 @@
   <v-container style="padding: 70px 0px 0px;">
     <v-img aspect-ratio="5" :src="require('../assets/logoblack.png')">
     </v-img>
-    <h1>SpotLight</h1>
-    <carousel perPage=1 :navigationEnabled="true">
+    <h1>Departments</h1>
+    <carousel perPage=2 :navigationEnabled="true">
       <slide>
-        <img :src="require('../assets/lemon.png')">
-        <span>12.95</span>
-        <v-btn href="./item">Details</v-btn>
+        <v-btn flat><img :src="require('../assets/hanger.png')"></v-btn>
       </slide>
       <slide>
-        <img :src="require('../assets/lemon.png')">
-        <img :src="require('../assets/avocado.jpg')">
+        <v-btn flat><img :src="require('../assets/computer.png')"></v-btn>
       </slide>
       <slide>
-        <img :src="require('../assets/lemon.png')">
-        <img :src="require('../assets/avocado.jpg')">
-        <img :src="require('../assets/orange.jpg')">
-      </slide>
-    </carousel>
-    <h1>Sale</h1>
-    <carousel perPage=1 :navigationEnabled="true">
-      <slide>
-        <img :src="require('../assets/lemon.png')">
+        <v-btn flat><img :src="require('../assets/house.png')"></v-btn>
       </slide>
       <slide>
-        <img :src="require('../assets/lemon.png')">
-        <img :src="require('../assets/avocado.jpg')">
+         <v-btn flat><img :src="require('../assets/burger.png')"></v-btn>
       </slide>
       <slide>
-        <img :src="require('../assets/lemon.png')">
-        <img :src="require('../assets/avocado.jpg')">
-        <img :src="require('../assets/orange.jpg')">
+         <v-btn flat href="./#/sale"><img :src="require('../assets/dollar.png')"></v-btn>
+      </slide>
+      <slide>
+        <img :src="require('../assets/logo.png')">
       </slide>
     </carousel>
   </v-container>

@@ -1,6 +1,11 @@
 <template >
     <div class="login">
-        <h2>Sign In</h2>
+        <div id="logo">
+            <v-img aspect-ratio="5" max-width="500" position='top center' :src="require('../assets/logoblack.png')"></v-img>
+        </div>
+
+    
+        <h2 id="centered">Sign In</h2>
           <v-layout>
     <v-flex xs12 sm8 offset-sm5>
         <v-layout align-center>
@@ -14,6 +19,7 @@
           ></v-text-field>
           <v-text-field
             v-model="password"
+            :type="'password'"
             label="Password"
             single-line
             solo
@@ -75,5 +81,13 @@ import firebase from 'firebase';
     p a {
         /* text-deoration: underline; */
         cursor: pointer;
+    }
+    div[id="logo"] {
+        position: relative;
+        left: 29%;
+    }
+    h2[id="centered"]{
+        position: relative;
+        left: 1%;
     }
 </style>

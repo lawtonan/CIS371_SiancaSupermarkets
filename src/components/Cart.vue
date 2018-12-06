@@ -4,10 +4,11 @@
             <table id="cart">
                 <th><td>Item</td><td>Price</td></th>
                 <template v-for="(item, index) in cart">
-                <tr v-bind:key=item,index>
+                <tr v-bind:key="item, index">
                     <td>{{item.name}}</td><td>{{item.price}}</td><td><button v-on:click="remove(index)">Remove from Cart</button></td>
                 </tr>
                 </template>
+
             </table>
         </v-container>
         <p id="subtotal">Subtotal: {{subtotal}}</p>
