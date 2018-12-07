@@ -1,12 +1,11 @@
 <template>
   <v-app>
-    <v-toolbar app v-if="isLogin">
+    <v-toolbar dark app v-if="isLogin">
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat href="./#/home" icon><v-icon>home</v-icon></v-btn>
       </v-toolbar-items>
       <v-toolbar-title>Sianca Supermarkets</v-toolbar-title> 
       <v-spacer></v-spacer>
-      <v-text-field prepend-icon="search" single-line></v-text-field>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat href="./#/cart" icon><v-icon>shopping_cart</v-icon></v-btn>
@@ -17,6 +16,7 @@
       temporary
       v-model="drawer"
       app
+      dark
       right
     >
       <v-list>
@@ -84,7 +84,7 @@ export default {
   methods: {
     admin: function(){
       if(this.password == 'admin'){
-        alert(this.password);
+        // alert(this.password);
         this.isAdmin = true;
       }
     },

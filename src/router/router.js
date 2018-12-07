@@ -2,16 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 
-const routerOptions = [
-  { path: '/', component: 'HelloWorld' },
-  { path: '/home', component: 'Home' },
-  { path: '/cart', component: 'Cart' },
-  { path: '/add', component: 'Add' },
-  { path: '/search', component: 'Search' },
-  { path: '/item', component: 'Item' },
-  { path: '/signUp', component: 'SignUp' },
-  { path: '/login', component: 'Login' }
-]
 
 import Home from '@/components/Home.vue';
 import Login from '@/components/Login.vue';
@@ -21,6 +11,11 @@ import Sale from '@/components/Sale.vue';
 import Cart from '@/components/Cart.vue';
 import Search from '@/components/Search.vue';
 import Item from '@/components/Item.vue';
+import Clothing from '@/components/Clothing.vue';
+import Electronics from '@/components/Electronics.vue';
+import Food from '@/components/Food.vue';
+import House from '@/components/House.vue';
+
 
 
 Vue.use(Router);
@@ -80,7 +75,27 @@ const router = new Router({
       path: '/sale',
       name: 'Sale',
       component: Sale
-    }
+    },
+    {
+      path: '/clothing',
+      name: 'Clothing',
+      component: Clothing
+    },
+    {
+      path: '/electronics',
+      name: 'Electronics',
+      component: Electronics
+    },
+    {
+      path: '/food',
+      name: 'Food',
+      component: Food
+    },
+    {
+      path: '/house',
+      name: 'House',
+      component: House
+    },
     
     
   ]

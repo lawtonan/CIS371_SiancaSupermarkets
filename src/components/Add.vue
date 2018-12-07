@@ -1,11 +1,11 @@
 <template>
 <v-app style="padding: 70px 0px 0px;">
 
-    <h1>PROOF IT IS DIIFERENT</h1>
-    <div>
+    <h1>Add or Remove Items</h1>
+    <!-- <div>
         <v-btn @click="remove">Remove Items</v-btn>
         <v-btn @click="add">Add Items</v-btn>
-    </div>
+    </div> -->
     <table v-if="view">
         <tr>
             <th>Amount</th>
@@ -23,10 +23,10 @@
                 <td>{{l.price}}</td>
                 <td>{{l.sale}}</td>
                 <td>
-                    <v-btn @click="addItem(l.name, l.amount)" icon>
+                    <v-btn color="green" @click="addItem(l.name, l.amount)" icon>
                         <v-icon>add</v-icon>
                     </v-btn>
-                    <v-btn @click="removeItem(l.name, l.amount)" icon>
+                    <v-btn color="red" @click="removeItem(l.name, l.amount)" icon>
                         <v-icon>remove</v-icon>
                     </v-btn>
                 </td>

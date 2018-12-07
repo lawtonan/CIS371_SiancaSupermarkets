@@ -3,8 +3,8 @@
 
     <h1>Sales Page</h1>
     <div>
-        <v-btn @click="sales">Display Sales</v-btn>
-        <v-btn @click="notSales">Display Not Sales</v-btn>
+        <v-btn color="success" @click="sales">Display Sales</v-btn>
+        <v-btn color="error" @click="notSales">Display Not Sales</v-btn>
     </div>
     <table>
         <tr id="header">
@@ -24,10 +24,10 @@
                 <td>{{l.price}}</td>
                 <td>{{l.sale}} </td>
                 <td v-if="isAdmin">
-                    <v-btn v-if="add" @click="addSale(l.name)" icon>
+                    <v-btn color="green" v-if="add" @click="addSale(l.name)" icon>
                       <v-icon>add</v-icon>
                     </v-btn>
-                    <v-btn v-if="!add" @click="removeSale(l.name)" icon>
+                    <v-btn color="red" v-if="!add" @click="removeSale(l.name)" icon>
                         <v-icon>clear</v-icon>
                     </v-btn>
                 </td>
