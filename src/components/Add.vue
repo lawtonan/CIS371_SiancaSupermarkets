@@ -13,7 +13,7 @@
             <th>Item</th>
             <th>Price</th>
             <th>Sale</th>
-            <th>Remove Item</th>
+            <th>Add Inventory</th>
         </tr>
         <template v-for="l in list">
             <tr v-bind:key=l>
@@ -23,18 +23,15 @@
                 <td>{{l.price}}</td>
                 <td>{{l.sale}}</td>
                 <td>
-                    <v-btn color="green" @click="addItem(l.name, l.amount)" icon>
+                    <v-btn color="green" @click="addItem(l.name)" icon>
                         <v-icon>add</v-icon>
-                    </v-btn>
-                    <v-btn color="red" @click="removeItem(l.name, l.amount)" icon>
-                        <v-icon>remove</v-icon>
                     </v-btn>
                 </td>
             </tr>
         </template>
     </table>
 
-    <v-card ref="form" v-if="!view">
+    <!-- <v-card ref="form" v-if="!view">
         <v-card-text>
           <v-text-field
             ref="amount"
@@ -89,7 +86,7 @@
           <v-spacer></v-spacer>
           <v-btn color="primary" flat @click="createItem()">Add</v-btn>
         </v-card-actions>
-      </v-card>
+      </v-card> -->
 
 </v-app>
 </template>
@@ -117,11 +114,11 @@ export default {
         }
     },
     methods: {
-        add: function() {
-          this.view = false;
+        add: function () {
+            this.view = false;
         },
-        remove: function() {
-          this.view = true;
+        remove: function () {
+            this.view = true;
         },
         display: function () {
             this.list = [];
@@ -132,25 +129,17 @@ export default {
             //this.list = snap.val();
         },
         // ADDS ITEMS FOR ADMIN
-        addItem: function(current, amount){
-          this.items = firebase.database().ref("store");
-          this.items.orderByChild("name").equalTo(current).on('child_added', snap => {
-            this.item = this.items.child(`${snap.key}/amount`);
-            this.item.set(amount+1);
-            this.display();
-          });
+        addItem: function (current) {
+            this.items = firebase.database().ref("store");
+            this.items.orderByChild("name").equalTo(current).on('child_added', snap => {
+                this.item = this.items.child(`${snap.key}/amount`);
+                this.item.set(parseInt(snap.val().amount, 10) + 1);
+                this.display();
+            });
         },
-        removeItem: function(current, amount){
-          this.items = firebase.database().ref("store");
-          this.items.orderByChild("name").equalTo(current).on('child_added', snap => {
-            this.item = this.items.child(`${snap.key}/amount`);
-            this.item.set(amount-1);
-            this.display();
-          });
-        },
-        createItem: function(){
-          console.log(this.ammount)
-          // this.child.push.set({ammount: })
+        createItem: function () {
+            console.log(this.ammount)
+            // this.child.push.set({ammount: })
         }
     },
     beforeMount() {
@@ -158,4 +147,3 @@ export default {
     }
 }
 </script>
-

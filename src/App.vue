@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar dark app v-if="isLogin">
+    <v-toolbar dark app v-if=" isLogin && isSign">
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat href="./#/home" icon><v-icon>home</v-icon></v-btn>
       </v-toolbar-items>
@@ -46,16 +46,50 @@
 
         <v-list-tile v-if="isAdmin">
           <v-list-tile-action>
-            <v-btn flat href="./#/add" icon> <v-icon>add</v-icon></v-btn>
+            <v-btn flat color="green" href="./#/add" icon> <v-icon>add</v-icon></v-btn>
           </v-list-tile-action>
           <v-list-tile-title>Add Items</v-list-tile-title>
         </v-list-tile>
 
         <v-list-tile v-if="isAdmin"> 
           <v-list-tile-action>
-            <v-btn flat href="./#/sale" icon> <v-icon>attach_money</v-icon></v-btn>
+            <v-btn flat color="purple" href="./#/sale" icon> <v-icon>attach_money</v-icon></v-btn>
           </v-list-tile-action>
           <v-list-tile-title>Sale Items</v-list-tile-title>
+        </v-list-tile>
+      </v-list-group>
+
+      <v-list-group no-action>
+        <v-list-tile slot="activator">
+          <v-list-tile-title>Departments</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-btn flat color="error" icon href="./#/electronics"><v-icon>airplay</v-icon></v-btn>
+          </v-list-tile-action>
+          <v-list-tile-title>Electronics</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile> 
+          <v-list-tile-action>
+            <v-btn flat href="./#/house" color="warning" icon><v-icon>home</v-icon></v-btn>
+          </v-list-tile-action>
+          <v-list-tile-title>Home</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile> 
+          <v-list-tile-action>
+            <v-btn flat href="./#/food" color="success" icon><v-icon>fastfood</v-icon></v-btn>
+          </v-list-tile-action>
+          <v-list-tile-title>Food</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-tile> 
+          <v-list-tile-action>
+            <v-btn flat href="./#/clothing" color="primary" icon><v-icon>person</v-icon></v-btn>
+          </v-list-tile-action>
+          <v-list-tile-title>Clothing</v-list-tile-title>
         </v-list-tile>
       </v-list-group>
 

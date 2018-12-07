@@ -23,7 +23,7 @@
       </v-layout>
       </v-flex >
       </v-layout>
-        <v-btn @click="signUp">Sign Up</v-btn>
+        <v-btn color="primary" @click="signUp">Sign Up</v-btn>
        <span>Return to <router-link to="/login">login</router-link>.</span>
     </div>
 

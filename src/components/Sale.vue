@@ -25,7 +25,7 @@
                 <td>{{l.sale}} </td>
                 <td v-if="isAdmin">
                     <v-btn color="green" v-if="add" @click="addSale(l.name)" icon>
-                      <v-icon>add</v-icon>
+                        <v-icon>add</v-icon>
                     </v-btn>
                     <v-btn color="red" v-if="!add" @click="removeSale(l.name)" icon>
                         <v-icon>clear</v-icon>
@@ -62,8 +62,8 @@ export default {
             alert(current);
             this.items = firebase.database().ref("store");
             this.items.orderByChild("name").equalTo(current).on('child_added', snap => {
-              this.item = this.items.child(`${snap.key}/sale`);
-              this.item.set("yes");
+                this.item = this.items.child(`${snap.key}/sale`);
+                this.item.set("yes");
             });
             this.notSales();
         },
@@ -71,8 +71,8 @@ export default {
             alert(current);
             this.items = firebase.database().ref("store");
             this.items.orderByChild("name").equalTo(current).on('child_added', snap => {
-              this.item = this.items.child(`${snap.key}/sale`);
-              this.item.set("no");
+                this.item = this.items.child(`${snap.key}/sale`);
+                this.item.set("no");
             });
             this.sales();
 

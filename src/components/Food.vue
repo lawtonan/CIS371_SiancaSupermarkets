@@ -15,6 +15,7 @@
             <th>Item</th>
             <th>Price</th>
             <th>Sale</th>
+            <th>Add to Cart</th>
         </tr>
         <template v-for="l in list">
             <tr v-bind:key=l>
@@ -23,6 +24,7 @@
                 <td>{{l.name}}</td>
                 <td>{{l.price}}</td>
                 <td>{{l.sale}}</td>
+                <td><v-btn @click="purchase(l.name, l.price, l.amount)" color="success" icon><v-icon>add_shopping_cart</v-icon></v-btn></td>
             </tr>
         </template>
     </table>
@@ -51,6 +53,27 @@ export default {
             this.items.orderByChild("department").equalTo("food").on('child_added', snap => {
                 this.list.push(snap.val());
             });
+        },
+        purchase: function (name, price, amount) {
+            if (amount > 0) {
+                this.items = firebase.database().ref("store");
+                this.items.orderByChild("name").equalTo(name).on('child_added', snap => {
+                    this.item = this.items.child(`${snap.key}/amount`);
+                    this.item.set(amount - 1);
+                    this.display();
+                });
+            }
+
+            this.user = firebase.auth().currentUser.email;
+            this.uname = this.user.split(".")[0];
+            this.root = firebase.database().ref();
+            this.child = this.root.child("users");
+            this.child.push().set({
+                user: this.uname,
+                name: name,
+                price: Number(price)
+            });
+            alert(this.uname);
         },
     },
     beforeMount() {

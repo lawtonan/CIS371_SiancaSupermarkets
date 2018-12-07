@@ -1,6 +1,6 @@
 <template>
   <v-container style="padding: 70px 0px 0px;">
-    <v-img aspect-ratio="5.5" :src="require('../assets/logoblack.png')">
+    <v-img aspect-ratio="5" :src="require('../assets/logoblack.png')">
     </v-img>
     <h1>Departments</h1>
     <carousel :perPage=2 :navigationEnabled="true">
@@ -30,7 +30,7 @@
       </slide>
       <slide>
          <div>
-          <v-btn color="info" to="Sale">Sales</v-btn>
+          <v-btn color="purple" class="white--text" to="Sale">Sales</v-btn>
         </div>
          <img :src="require('../assets/dollar.png')">
       </slide>

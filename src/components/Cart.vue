@@ -1,90 +1,78 @@
 <template>
-    <div id="checkout">
-        <v-container fluid>
-            <table id="cart">
-                <th><td>Item</td><td>Price</td></th>
-                <template v-for="(item, index) in cart">
-                <tr v-bind:key="item, index">
-                    <td>{{item.name}}</td><td>{{item.price}}</td><td><button v-on:click="remove(index)">Remove from Cart</button></td>
+<div id="checkout" style="padding: 70px 30% 0px;">
+    <v-container fluid>
+        <table>
+            <tr id="header">
+                <th>name</th>
+                <th>price</th>
+            </tr>
+            <template v-for="(l, index) in list">
+                <tr v-bind:key="l,index">
+                    <td> {{l.name}} </td>
+                    <td>{{l.price}}</td>
+                    <v-btn v-on:click="remove(index)">Remove from Cart</v-btn>
                 </tr>
-                </template>
+            </template>
+        </table>
+    </v-container>
+    <p id="subtotal">Subtotal: {{subtotal}}</p>
+    <p id="total">Total: {{total}}</p>
+    <v-btn v-on:click="getTotals">Calculate</v-btn>
 
-            </table>
-        </v-container>
-        <p id="subtotal">Subtotal: {{subtotal}}</p>
-        <p id="total">Total: {{total}}</p>
-        <v-btn v-on:click="getTotals">Calculate</v-btn>
-        <v-flex xs4>
-            <p>Card Number:</p>
-            <v-text-field v-model="creditCard" placeholder="eg. 1111222233334444"/>
-        </v-flex>
-        <v-flex xs4>
-            <p>Expiration Date:</p>
-            <v-text-field v-model="expiration" placeHolder="eg. 11/22"/>
-        </v-flex>
-        <v-flex xs4>
-            <p>Security Code:</p>
-            <v-text-field v-model="security" placeHolder="eg. 123"/>
-        </v-flex>
-        <v-flex xs4>
-            <p>Shipping Adress:</p>
-            <v-text-field v-model="shipping"/>
-        </v-flex>
-        <v-flex xs4>
-            <p>City:</p>
-            <v-text-field v-model="city"/>
-        </v-flex>
-        <v-flex xs4>
-            <p>State:</p>
-            <v-text-field v-model="state"/>
-        </v-flex>
-    </div>
+</div>
 </template>
 
-
 <script>
-
-import { bus } from '../main';
-
+import firebase from 'firebase';
 export default {
     data() {
         return {
-            cart: [],
+            list: [],
             subtotal: 0,
             total: 0,
-            creditCard: '',
-            security: '',
-            expiration: '',
-            shipping: '',
-            city: '',
-            state: ''
+            name: "", 
+            price: 0, 
+            uname: ""
         }
     },
     methods: {
-        remove: function(index){
-            this.cart.splice(index, 1);
+        remove: function (index) {
+            this.list.splice(index, 1);
+            this.getTotals();
         },
-        getTotals: function(){
+        getTotals: function () {
             let x = 0.00
-            Object.entries(this.cart).forEach(([key, val]) => {
-                x+=(val.price)});
+            Object.entries(this.list).forEach(([key, val]) => {
+                x += (val.price)
+            });
             this.subtotal = x.toFixed(2);
             this.total = (this.subtotal * 1.06).toFixed(2);
         },
-        createList: function(list){
-            this.cart = list;
+        display: function (current) {
+            this.list = [];
+            this.items = firebase.database().ref("users");
+            this.items.orderByChild("user").equalTo(current).on('child_added', snap => {
+                this.name = (snap.val().name);
+                console.log(this.name);
+                this.price = (snap.val().price);
+                console.log(this.price);
+                this.list.push({
+                    name: this.name,
+                    price: this.price
+                });
+                console.log(this.list);
+            });
+
         }
+
     },
+    mounted() {
+        this.user = firebase.auth().currentUser.email;
+        this.uname = this.user.split(".")[0];
 
-    
-    mounted(){
-        /*
-        bus.$on('cartSent', data =>{
-            this.cart = data;
-            console.log("test");
-        });*/
+        this.display(this.uname);
+        this.getTotals();
     }
+
 };
-
-
 </script>
